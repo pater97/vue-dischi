@@ -1,21 +1,36 @@
 <template>
     <div class="main_container">
-        <card/>
+      <section class="row">
+         <card
+        v-for="card in cards"
+        :key="card.id"
+        :image="card.poster"
+        :title="card.title"
+        :artist="card.author"
+        :year="card.year"
+        />
+      </section>
     </div>
 </template>
 
 <script>
 import card from './card.vue'
-import Axios from 'Axios'
+import axios from 'axios'
 export default {
     components:{
         card
     },
+    data(){
+      return {
+        cards:[]
+      }
+    },
      mounted(){
-    Axios
+    axios
     .get('https://flynn.boolean.careers/exercises/api/array/music')
     .then(r =>{
-      console.log(r);
+      this.cards = r.data.response;
+      console.log(this.cards);
     }).catch(e=>{
       console.log(e,'ops!');
     })
@@ -24,5 +39,12 @@ export default {
 </script>
 
 <style lang="scss">
-
+.main_container{
+  width: 90%;
+  margin: auto;
+}
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+  }
 </style>
