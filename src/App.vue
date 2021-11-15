@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <siteHeader />
-    <siteMain />
+    <siteMain class="main"/>
   </div>
 </template>
 
@@ -25,5 +25,9 @@ export default {
 }
 body {
   font-family: "Montserrat";
+  background-color:#1E2D3B ;
+  .main{
+    padding: 4rem 0 8rem 0;
+  } 
 }
 </style>

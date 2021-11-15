@@ -1,42 +1,69 @@
 <template>
+  <!-- colonna della card -->
+  <div class="card_column">
+      <!-- card -->
     <div class="card">
-        <img :src="image" alt="">
-        <h2>
-            {{title}}
-        </h2>
-        <h5>
-            {{artist}}
-        </h5>
-        <h6>
-            {{year}}
-        </h6>
+        <!-- immgaine  -->
+      <img :src="image" alt="" />
+      <!-- titolo -->
+      <h2>
+        {{ title.toUpperCase() }}
+      </h2>
+      <!-- artista -->
+      <h5>
+        {{ artist }}
+      </h5>
+      <!-- anno d'uscita  -->
+      <h6>
+        {{ year }}
+      </h6>
     </div>
+    <!-- /card -->
+  </div>
+  <!-- /colonna card -->
 </template>
 
 <script>
 export default {
-    props:{
-        image: String,
-        title: String,
-        artist:String,
-        year:String
-    }
-}
+    // porps per la variabile da definire in seguito 
+  props: {
+    image: String,
+    title: String,
+    artist: String,
+    year: String,
+  },
+};
 </script>
 
 <style lang="scss">
-.card{
-    width: calc((100%/12)*2);
+// misure colonna 
+.card_column {
+  width: calc((100% / 12) * 2);
+  margin: 1rem 0;
+//   impostazione card 
+  .card {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    img{
-        width: 6rem;
-    }
-    h2{
-        font-size: 1rem;
-        width: 5rem;
-    }
+    background-color: #2e3a46;
+    margin: 1rem;
+    padding: 1rem 0;
+    height: 100%;
+  }
+  img,h2 {
+    width: 80%;
+  }
+  h2 {
+    font-size: 1.2rem;
+    color: white;
+    margin: 1rem 0;
+  }
+  h6{
+      margin: 3px;
+  }
+  h6,h5{
+      color: grey;
+  }
 }
 </style>
