@@ -27,7 +27,7 @@ body {
   font-family: "Montserrat";
   background-color:#1E2D3B ;
   .main{
-    padding: 4rem 0 8rem 0;
+    padding: 2rem 0 8rem 0;
   } 
 }
 </style>

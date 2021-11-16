@@ -50,6 +50,8 @@ export default {
     margin: 1rem;
     padding: 1rem 0;
     height: 100%;
+    border-radius: 10px;
+    &:hover{transform: scale(110%);box-shadow: 1px 1px 15px 1px #1ed760;}
   }
   img,h2 {
     width: 80%;
