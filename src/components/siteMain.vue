@@ -1,6 +1,8 @@
 <template>
 <!-- contenitore principale -->
     <div class="main_container">
+      <!-- selettore di genere -->
+      <selector/>
       <!-- condizione positiva -->
       <section class="row" v-if="!loading">
          <card
@@ -25,9 +27,11 @@
 // importazioni 
 import card from './card.vue'
 import axios from 'axios'
+import selector from './selector.vue'
 export default {
     components:{
-        card
+        card,
+        selector
     },
     // oggetti
     data(){
