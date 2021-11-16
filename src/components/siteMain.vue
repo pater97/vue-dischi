@@ -2,11 +2,29 @@
 <!-- contenitore principale -->
     <div class="main_container">
       <!-- selettore di genere -->
-      <selector/>
+      <div class="select_kind">
+        <select v-model="selected" @change="filteredKind" id="kind_select">
+          <option value="all">
+            all
+          </option>
+          <option value="Rock">
+            Rock
+          </option>
+          <option value="Pop">
+              Pop
+          </option>
+          <option value="Jazz">
+              Jazz
+          </option>
+          <option value="Metal">
+              Metal
+          </option>
+        </select>
+    </div>
       <!-- condizione positiva -->
       <section class="row" v-if="!loading">
          <card
-        v-for="card in cards"
+        v-for="card in filteredKind"
         :key="card.id"
         :image="card.poster"
         :title="card.title"
@@ -27,17 +45,31 @@
 // importazioni 
 import card from './card.vue'
 import axios from 'axios'
-import selector from './selector.vue'
 export default {
     components:{
         card,
-        selector
     },
     // oggetti
     data(){
       return {
         cards:[],
-        loading:true
+        loading:true,
+        selected:""
+      }
+    },
+    methods:{
+      
+    },
+    computed:{
+      filteredKind(){
+        if(this.selected == "all"){
+          return this.cards
+        }else{
+          const filteredcard = this.cards.filter(card =>{
+            return card.genre.includes(this.selected)
+          })
+          return filteredcard
+        }
       }
     },
     // richiamo api 

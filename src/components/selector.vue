@@ -1,6 +1,6 @@
 <template>
     <div class="select_kind">
-        <select name="kind" id="kind_select">
+        <select v-model="selected" @change="$emit('change_kind',selected)" name="kind" id="kind_select">
           <option value="Rock">
             Rock
           </option>
@@ -16,3 +16,20 @@
         </select>
     </div>
 </template>
+
+<script>
+export default {
+    data(){
+        return{
+            selected:""
+        }
+    },
+    methods:{
+        
+    }
+ }
+</script>
+
+<style lang="scss">
+    
+</style>
